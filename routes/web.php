@@ -15,10 +15,6 @@ use Illuminate\Http\Request;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
-
-Route::controller(UserController::class)->group(function(){
-    Route::get('/','index');
-});
+Route::get('/',[UserController::class,'create']);
+Route::get('/index',[UserController::class,'index']);
+Route::post('/guardar',[UserController::Class ,'guardar']);
