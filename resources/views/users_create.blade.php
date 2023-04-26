@@ -6,21 +6,30 @@
   <body>
     <div class="row" style="display: flex;align-items: center;justify-content: center;    padding-top: 30px;">
         <div class="col-10 ">
-        <form action="/guardar" method="POST">
+            <formform  method="post" action="guardar" novalidate>
+                @csrf
             
                 <div class="mb-3">
                     <label class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name" value="{{ old('nombre') }}">
                 </div>
+                @error('name')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                @enderror
+
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control @error('email') is-invalid @enderror"  name="email" value="{{ old('email') }}" >
                 </div>
+                @error('email')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                @enderror
+
                 <div class="mb-3">
                     <label class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror"  name="password" value="{{ old('password') }}">
                 </div>
-                <button type="submit" class="btn btn-info">guardar registro</button>
+                <input type="submit" class="btn btn-info" value="enviar">
             </form>
         </div>
     </div>
