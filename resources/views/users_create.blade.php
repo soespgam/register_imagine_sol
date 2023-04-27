@@ -4,32 +4,26 @@
     <title>Index User</title>
   </head>
   <body>
-    <div class="row" style="display: flex;align-items: center;justify-content: center;    padding-top: 30px;">
+    <div class="row" style="display: flex;align-items: center;justify-content: center;padding-top: 30px;">
         <div class="col-10 ">
-            <formform  method="post" action="guardar" novalidate>
-                @csrf
+            <form action="{{url('users.create')}}" method="post">
             
+                @csrf
                 <div class="mb-3">
                     <label class="form-label">Nombre Completo</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name" value="{{ old('nombre') }}">
+                    <input type="text" class="form-control"  name="name" required>
                 </div>
-                @error('name')
-                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                @enderror
 
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror"  name="email" value="{{ old('email') }}" >
+                    <input type="email" class="form-control"  name="email" required>
                 </div>
-                @error('email')
-                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                @enderror
 
                 <div class="mb-3">
                     <label class="form-label">Contraseña</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror"  name="password" value="{{ old('password') }}">
+                    <input type="password" class="form-control"  name="password" required>
                 </div>
-                <input type="submit" class="btn btn-info" value="enviar">
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

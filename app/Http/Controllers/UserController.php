@@ -24,6 +24,8 @@ class UserController extends Controller
 
     function guardar(Request $request)
     {
+      
+
         $request->validate([
             'name' => 'required',
             'email' => 'required' ,
@@ -35,7 +37,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
    
-        $user->save();
-        return view('users_index');
+        $user->save(); 
+        return redirect('/users.index');
     }
 }
