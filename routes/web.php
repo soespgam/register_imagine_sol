@@ -16,5 +16,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/',[UserController::class,'create']);
-Route::get('/index',[UserController::class,'index']);
-Route::post('/guardar',[UserController::Class ,'guardar']);
+Route::get('users.index',[UserController::class,'index']);
+Route::post('users.create',[UserController::Class ,'guardar']);
